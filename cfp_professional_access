@@ -1,0 +1,23 @@
+driver.get(url)
+    time.sleep(5)
+    btn = driver.find_element(By.ID, 'forced-modal-accept')
+    btn.click()
+    professionals = []
+
+    for pg in tqdm([221, 533, 605]):
+        driver.get(
+            f'https://www.letsmakeaplan.org/find-a-cfp-professional?limit=100&pg={pg}&randomKey=614&sort=random&distance=100#')
+        time.sleep(4)
+        try:
+            for entry in range(1, 101):
+                    professional = driver.find_element(By.XPATH,
+                                                       f'/html/body/div[1]/div/main/div[2]/div/div[2]/div[2]/div[4]/a[{entry}]').get_attribute(
+                        'href')
+                    professionals.append(professional)
+        except Exception as e:
+                print(pg)
+
+    with open('professionals_added.txt', 'a') as tfile:
+        tfile.write('\n'.join(professionals))
+
+    tfile.close()
