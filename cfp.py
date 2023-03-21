@@ -51,7 +51,7 @@ Also, note that the above values can be missing on the site and hence missing in
 There will be a bonus if you can extract email addresses.
 
 completed after a 2 weeks, light work throughout. Aside from some very few edge cases, database would be complete and 
-actionable in ~95 hours.
+actionable in ~95 hours. This time can be resudced with threading as there is no rate limiter on the site
 '''
 
 
